@@ -1,0 +1,29 @@
+{
+  "name": "github-webhook-forwarding",
+  "version": "1.0.0",
+  "description": "Forwards Github Webhooks to overcome the maximum number of webhooks allowed by Github (20)",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "gaston test -r node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigour-io/github-webhook-forwarding.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Webhook",
+    "Forwarding"
+  ],
+  "author": "Vigour <dev@vigour.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vigour-io/github-webhook-forwarding/issues"
+  },
+  "homepage": "https://github.com/vigour-io/github-webhook-forwarding#readme",
+  "contributors": [
+    "Shawn Inder <shawn@vigour.io>"
+  ],
+  "dependencies": {},
+  "engines": {}
+}
