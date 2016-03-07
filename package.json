@@ -4,7 +4,9 @@
   "description": "Forwards Github Webhooks to overcome the maximum number of webhooks allowed by Github (20)",
   "main": "lib/index.js",
   "scripts": {
-    "test": "gaston test -r node"
+    "test": "gaston test -r node",
+    "start": "./bin/gwf.js",
+    "unhook": "./bin/gwf.js --unhook true"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,64 @@
   "contributors": [
     "Shawn Inder <shawn@vigour.io>"
   ],
-  "dependencies": {},
-  "engines": {}
+  "dependencies": {
+    "btoa": "^1.1.2",
+    "express": "^4.13.4",
+    "ip": "^1.1.2",
+    "lodash.clonedeep": "^4.3.1",
+    "lodash.find": "^4.2.0",
+    "lodash.merge": "^4.3.2",
+    "npmlog": "^2.0.2",
+    "vigour-config": "^0.1.0",
+    "vigour-fs-promised": "^2.0.1"
+  },
+  "engines": {},
+  "vigour": {
+    "verbose": {
+      "val": false,
+      "description": "Whether to log information in addition to errors and warnings",
+      "_env": "GWF_VERBOSE"
+    },
+    "port": {
+      "val": 50000,
+      "description": "Port on which to listen for subscriptions and GitHub webhooks",
+      "_env": "GWF_PORT"
+    },
+    "gitOwner": {
+      "val": false,
+      "description": "Owner or organization name on which to listen",
+      "_env": "GWF_OWNER"
+    },
+    "gitUsername": {
+      "val": false,
+      "description": "Username for authentication with GitHub",
+      "_env": "GWF_USER"
+    },
+    "gitPassword": {
+      "val": false,
+      "description": "Password for authentication with GitHub",
+      "_env": "GWF_PASS"
+    },
+    "subsFilePath": {
+      "val": false,
+      "description": "Full path and file name of subscription storage file. defaults to `path.join(__dirname, '..', 'runtime', 'subs.json')`",
+      "_env": "GWF_SUBS_FILE"
+    },
+    "unhook": {
+      "val": false,
+      "description": "Set to `true` to remove the hook that would otherwise be created by starting the service"
+    }
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach",
+      "sinon"
+    ]
+  }
 }
