@@ -45,4 +45,4 @@ $ export GWF_TEST_PASS=OMGthisissoooooosecret
 
 ## Subscribing to GWF
 
-To subscribe to GWF, make a `POST` request to `/subscribe?url=<YOUR_URL>` with Basic authentication (see [test/node/server.js]() for a complete example)
+To subscribe to GWF, make a `POST` request to `/subscribe?url=<YOUR_URL>` with Basic authentication (see [the server tests](test/node/server.js) for a complete example)
