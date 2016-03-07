@@ -5,7 +5,10 @@ var createHook = require('../../lib/github/createhook')
 var removeHook = require('../../lib/github/removehook')
 var removeThisHook = require('../../lib/github/removethishook')
 
+var requireTestConfig = require('../helpers/requiretestconfig')
+
 describe('createhook', function () {
+  requireTestConfig()
   var id
   var config = {
     gitOwner: process.env['GWF_TEST_OWNER'],

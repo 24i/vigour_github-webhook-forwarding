@@ -27,6 +27,7 @@
     "Shawn Inder <shawn@vigour.io>"
   ],
   "dependencies": {
+    "basic-auth": "^1.0.3",
     "btoa": "^1.1.2",
     "express": "^4.13.4",
     "ip": "^1.1.2",
@@ -68,6 +69,16 @@
       "val": false,
       "description": "Full path and file name of subscription storage file. defaults to `path.join(__dirname, '..', 'runtime', 'subs.json')`",
       "_env": "GWF_SUBS_FILE"
+    },
+    "subUser": {
+      "val": false,
+      "description": "Username subscribers should use to authenticate subscription requests",
+      "_env": "GWF_SUB_USER"
+    },
+    "subPass": {
+      "val": false,
+      "description": "Password subscribers should use to authenticate subscription requests",
+      "_env": "GWF_SUB_PASS"
     },
     "unhook": {
       "val": false,

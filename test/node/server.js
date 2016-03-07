@@ -4,6 +4,7 @@ var path = require('path')
 var http = require('http')
 var log = require('npmlog')
 var express = require('express')
+var btoa = require('btoa')
 var fs = require('vigour-fs-promised')
 var Server = require('../../lib/server')
 
@@ -12,9 +13,13 @@ var subsFilePath = path.join(subsFileDir, 'subscriptions.json')
 
 var gwf
 var gwfPort = 50000
+var subUser = 'Gromit'
+var subPass = 'Chees3!'
 var config = {
   subsFilePath: subsFilePath,
-  port: gwfPort
+  port: gwfPort,
+  subUser: subUser,
+  subPass: subPass
 }
 var ports = [
   8001,
@@ -35,13 +40,37 @@ describe('server', function () {
     }))
   })
   before(function () {
-    return fs.writeJSONAsync(subsFilePath, ports.map((port) => {
-      return 'http://localhost:' + port + '/push'
-    }), { mkdirp: true })
-  })
-  before(function () {
     gwf = new Server(config)
     return gwf.start()
+  })
+  it('should accept subscriptions', function () {
+    return Promise.all(ports.map(function (port) {
+      return new Promise(function (resolve, reject) {
+        var options = {
+          method: 'POST',
+          path: '/subscribe?url=http://localhost:' + port + '/push',
+          port: gwfPort,
+          headers: {
+            authorization: 'Basic ' + btoa(subUser + ':' + subPass)
+          }
+        }
+        // log.info('Subscribing', options)
+        var req = http.request(options, function (res) {
+          res.on('error', handleErr('subscribe res', reject))
+          var total = ''
+          res.on('data', function (chunk) {
+            total += chunk.toString()
+          })
+          res.on('end', function () {
+            expect(res.statusCode === 200 || res.statusCode === 201).to.equal(true)
+            resolve()
+          })
+        })
+        req.on('error', handleErr('subscribe req', reject))
+        req.write('')
+        req.end()
+      })
+    }))
   })
   it('should forward the request as-is to all subscribers', function (done) {
     var options = {
@@ -51,25 +80,20 @@ describe('server', function () {
       path: '/push',
       headers: mockHeaders
     }
-    log.info('simulating a webhook', options, 'body:', mockBody)
+    // log.info('Simulating a webhook', options, 'body:', mockBody)
     var req = http.request(options, function (res) {
       var total = ''
-      res.on('error', function (reason) {
-        log.error('response failed', reason)
-      })
+      res.on('error', handleErr('webhook sim res'))
       res.on('data', function (chunk) {
         total += chunk.toString()
       })
       res.on('end', function () {
-        log.info('total', total)
         expect(res.statusCode).to.equal(202)
         expect(total).to.equal(responseBody)
         done()
       })
     })
-    req.on('error', function (reason) {
-      log.error('request failed', reason)
-    })
+    req.on('error', handleErr('webhook sim req'))
     req.write(mockBody)
     req.end()
   })
@@ -102,6 +126,7 @@ function launchTestServer (port) {
       })
     })
     var handle = app.listen(port, '127.0.0.1', function () {
+      // log.info('git-spy mock listening on ', port)
       testServers.push({
         app: app,
         handle: handle
@@ -109,4 +134,13 @@ function launchTestServer (port) {
       resolve()
     })
   })
+}
+
+function handleErr (tag, reject) {
+  return function (reason) {
+    log.error(tag, reason)
+    if (reject) {
+      reject(reason)
+    }
+  }
 }

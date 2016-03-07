@@ -4,7 +4,10 @@ var btoa = require('btoa')
 var createHook = require('../../lib/github/createhook')
 var removeThisHook = require('../../lib/github/removethishook')
 
+var requireTestConfig = require('../helpers/requiretestconfig')
+
 describe('removethishook', function () {
+  requireTestConfig()
   var config = {
     gitOwner: process.env['GWF_TEST_OWNER'],
     gitAuth: btoa(process.env['GWF_TEST_USER'] +

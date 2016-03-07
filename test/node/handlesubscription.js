@@ -13,7 +13,7 @@ var validUrl = 'http://perdu.com:80/'
 
 describe('handlesubscription', function () {
   describe('handling bad requests', function () {
-    it('should fail on invalid URLs', function () {
+    it('should fail on invalid URLs', function (done) {
       var endCount = 0
       var req = {
         query: {
@@ -27,6 +27,7 @@ describe('handlesubscription', function () {
             end: function (body) {
               endCount += 1
               expect(body).to.equal(responseBody('Invalid URL'))
+              done()
             }
           }
         }

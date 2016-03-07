@@ -10,7 +10,11 @@ var handleWebhook = require('../../lib/server/handlewebhook')
 var subsFileDir = path.join(__dirname, 'handleSubscriptionData')
 var subsFilePath = path.join(subsFileDir, 'subscriptions.json')
 
-var middleware = handleWebhook(subsFilePath)
+var config = {
+  subsFilePath: subsFilePath
+}
+
+var middleware = handleWebhook(config)
 
 var gwfMockPort = 8000
 var ports = [8003, 8004]
@@ -31,7 +35,7 @@ describe('handlewebhook', function () {
     'content-length': payload.length
   }
   before(function () {
-    return fs.writeJSONAsync(subsFilePath, JSON.stringify(subscriptions), { mkdirp: true })
+    return fs.writeJSONAsync(subsFilePath, subscriptions, { mkdirp: true })
   })
   // git-spy mocks
   before(function () {
@@ -52,7 +56,6 @@ describe('handlewebhook', function () {
           req.on('end', function () {
             expect(total).to.equal(payload)
           })
-          log.info('status 202ing')
           res.status(202)
           res.end('ACCEPTED')
         })
@@ -79,7 +82,7 @@ describe('handlewebhook', function () {
       headers: mockHeaders
     }, function (res) {
       res.on('error', errHandler('GitHub mock response'))
-      log.info('GitHub getting response:', res.statusCode, res.statusMessage)
+      // log.info('GitHub mock getting response:', res.statusCode, res.statusMessage)
       expect(res.statusCode).to.equal(202)
       var total = ''
       res.on('data', function (chunk) {
