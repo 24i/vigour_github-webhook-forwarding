@@ -7,7 +7,7 @@ Forwards Github Webhooks to overcome the maximum number of webhooks allowed by G
 
 ## Usage
 
-See [vigour-config](https://github.com/vigour-io/config#readme)
+See [configure and launch your service](https://github.com/vigour-io/config#configure-and-launch-your-service) in [`vigour-config`](https://github.com/vigour-io/config#readme)
 
 ## `npm start`
 
@@ -21,11 +21,11 @@ Other options are also available, check package.json[`vigour`] and see [usage](#
 
 ### Warning
 
-This is meant for a production environment where the ip returned by `ip.address()` is accessible to the outside world. On a local setup, the webhook will not reach. But the service will still create a WebHook on GitHub for the configured organization, taking one of only 20 available webhooks! Don't forget to remove it if you run `npm start locally` or if your decommissioning and instance of the service. If you don't want to do this manually, use `npm run unhook`.
+This is meant for a production environment where the ip returned by `ip.address()` is accessible to the outside world. On a local setup, the webhook will not reach. But the service will still create a WebHook on GitHub for the configured organization, taking one of only 20 available webhooks! Don't forget to remove it if you run `npm start` locally or if you're decommissioning an instance of the service. If you don't want to do this manually, use `npm run unhook`.
 
 ## `npm run unhook`
 
-This gets the same config as `npm start`, but with `unhook: true` (`--unhook true`), which means that instead of creating a hook if none exist for this ip and port, it will remove such a hook and exit
+This gets the same config as `npm start`, but with `{ unhook: true }` (`--unhook true`), which means that instead of creating a hook if none exist for this ip and port, it will remove such a hook and exit
 
 ## `npm test`
 
