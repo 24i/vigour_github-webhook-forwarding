@@ -1,3 +1,7 @@
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![npm version](https://badge.fury.io/js/vigour-config.svg)](https://badge.fury.io/js/vigour-config)
+[![Build Status](https://travis-ci.org/vigour-io/github-webhook-forwarding.svg?branch=develop)](https://travis-ci.org/vigour-io/github-webhook-forwarding)
+
 # github-webhook-forwarding
 Forwards Github Webhooks to overcome the maximum number of webhooks allowed by Github (20)
 
