@@ -50,6 +50,10 @@
       "description": "Port on which to listen for subscriptions and GitHub webhooks",
       "_env": "GWF_PORT"
     },
+    "callbackURL": {
+      "val": false,
+      "description": "The URL to tell GitHub to POST Webhooks to"
+    },
     "gitOwner": {
       "val": false,
       "description": "Owner or organization name on which to listen",
