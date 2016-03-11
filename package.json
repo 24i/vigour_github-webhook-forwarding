@@ -52,7 +52,8 @@
     },
     "callbackURL": {
       "val": false,
-      "description": "The URL to tell GitHub to POST Webhooks to"
+      "description": "The URL to tell GitHub to POST Webhooks to",
+      "_env": "GWF_CALLBACK_URL"
     },
     "gitOwner": {
       "val": false,
