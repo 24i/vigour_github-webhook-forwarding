@@ -16,6 +16,8 @@ This service needs to make authenticated requests to GitHub. You'll need to prov
 - `gitOwner` (`$GWF_OWNER`)
 - `gitUsername` (`$GWF_USER`)
 - `gitPassword` (`$GWF_PASS`)
+- `subUser` (`$GWF_SUB_USER`)
+- `subPass` (`$GWF_SUB_PASS`)
 
 Other options are also available, check package.json[`vigour`] and see [usage](#usage)
 
