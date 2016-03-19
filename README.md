@@ -7,7 +7,7 @@ Forwards Github Webhooks to overcome the maximum number of webhooks allowed by G
 
 ## Usage
 
-See [configure and launch your service](https://github.com/vigour-io/config#configure-and-launch-your-service) in [`vigour-config`](https://github.com/vigour-io/config#readme)
+See [configure and launch your service](https://github.com/vigour-io/config#configure-and-launch-your-service) in [`vigour-config`](https://github.com/vigour-io/config#readme) for information on how to configure and launch the github-webhook-forwarding service and where to get more info for all the configuration options.
 
 ## `npm start`
 
