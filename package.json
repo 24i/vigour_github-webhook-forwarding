@@ -1,6 +1,6 @@
 {
   "name": "github-webhook-forwarding",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Forwards Github Webhooks to overcome the maximum number of webhooks allowed by Github (20)",
   "main": "lib/index.js",
   "scripts": {
