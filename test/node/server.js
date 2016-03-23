@@ -97,6 +97,29 @@ describe('server', function () {
     req.write(mockBody)
     req.end()
   })
+  it('should respond to `/$api/status` requests', function (done) {
+    var options = {
+      hostname: 'localhost',
+      port: gwfPort,
+      path: '/$api/status',
+      headers: mockHeaders
+    }
+    // log.info('Simulating a `GET /$api/status` request', options)
+    var req = http.request(options, function (res) {
+      var total = ''
+      res.on('error', handleErr('status res'))
+      res.on('data', function (chunk) {
+        total += chunk.toString()
+      })
+      res.on('end', function () {
+        expect(res.statusCode).to.equal(200)
+        expect(total).to.equal('')
+        done()
+      })
+    })
+    req.on('error', handleErr('status req'))
+    req.end()
+  })
   // after(function (done) {
   //   gwf.handle.close(done)
   // })
