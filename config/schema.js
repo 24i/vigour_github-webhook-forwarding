@@ -51,7 +51,7 @@ module.exports = {
     filePath: {
       doc: 'Full path and file name of subscription storage file. defaults to `path.join(__dirname, \'..\', \'runtime\', \'subs.json\')`',
       format: String,
-      default: null,
+      default: '',
       env: 'GWF_SUBS_FILE'
     },
     username: {
