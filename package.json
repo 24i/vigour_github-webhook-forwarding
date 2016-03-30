@@ -7,7 +7,7 @@
     "test": "gaston test -r node",
     "debug": "./bin/gwf.js --debug | bunyan",
     "start": "./bin/gwf.js",
-    "unhook": "./bin/gwf.js --unhook true"
+    "unhook": "./bin/gwf.js --unhook"
   },
   "repository": {
     "type": "git",
