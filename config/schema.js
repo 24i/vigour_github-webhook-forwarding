@@ -42,12 +42,20 @@ module.exports = {
       }
     }
   },
-  port: {
-    doc: 'Port on which to listen for subscriptions and GitHub webhooks',
-    format: Number,
-    default: 50000,
-    env: 'GWF_PORT',
-    arg: 'port'
+  server: {
+    host: {
+      doc: 'Hostname for the server, defaults to current ip',
+      format: String,
+      default: '',
+      env: 'GWF_HOST'
+    },
+    port: {
+      doc: 'Port on which to listen for subscriptions and GitHub webhooks',
+      format: Number,
+      default: 50000,
+      env: 'GWF_PORT',
+      arg: 'port'
+    }
   },
   callbackURL: {
     doc: 'The URL to tell GitHub to POST Webhooks to',
