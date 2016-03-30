@@ -34,3 +34,7 @@ node_modules
 
 # Runtime files
 runtime/
+
+#running locally (containing passwords)
+debug.sh
+run.sh
