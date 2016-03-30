@@ -29,13 +29,13 @@
   "dependencies": {
     "basic-auth": "^1.0.3",
     "btoa": "^1.1.2",
+    "convict": "^1.0.2",
     "express": "^4.13.4",
     "ip": "^1.1.2",
     "lodash.clonedeep": "^4.3.1",
     "lodash.find": "^4.2.0",
     "lodash.merge": "^4.3.2",
     "npmlog": "^2.0.2",
-    "vigour-config": "^0.1.0",
     "vigour-fs-promised": "^2.0.1"
   },
   "engines": {},
