@@ -31,7 +31,7 @@ module.exports = {
       token: {
         doc: 'The token for logentries',
         format: String,
-        default: 'b884b85d-548b-4338-a891-1d8730ec76f6',
+        default: '44a0c3d1-cabd-49d8-8a1f-c1af131c2800',
         env: 'GWF_LOG_LE_TOKEN'
       },
       level: {

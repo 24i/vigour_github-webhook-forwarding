@@ -1,6 +1,6 @@
 'use strict'
 module.exports = {
   logger: {
-    name: 'gwf-test'
+    name: 'vigour-gwf-test'
   }
 }
