@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "gaston test -r node",
+    "debug": "./bin/gwf.js --debug | bunyan",
     "start": "./bin/gwf.js",
-    "unhook": "./bin/gwf.js --unhook true"
+    "unhook": "./bin/gwf.js --unhook"
   },
   "repository": {
     "type": "git",
@@ -29,67 +30,16 @@
   "dependencies": {
     "basic-auth": "^1.0.3",
     "btoa": "^1.1.2",
+    "convict": "^1.0.2",
     "express": "^4.13.4",
     "ip": "^1.1.2",
     "lodash.clonedeep": "^4.3.1",
     "lodash.find": "^4.2.0",
     "lodash.merge": "^4.3.2",
     "npmlog": "^2.0.2",
-    "vigour-config": "^0.1.0",
     "vigour-fs-promised": "^2.0.1"
   },
   "engines": {},
-  "vigour": {
-    "verbose": {
-      "val": false,
-      "description": "Whether to log information in addition to errors and warnings",
-      "_env": "GWF_VERBOSE"
-    },
-    "port": {
-      "val": 50000,
-      "description": "Port on which to listen for subscriptions and GitHub webhooks",
-      "_env": "GWF_PORT"
-    },
-    "callbackURL": {
-      "val": false,
-      "description": "The URL to tell GitHub to POST Webhooks to",
-      "_env": "GWF_CALLBACK_URL"
-    },
-    "gitOwner": {
-      "val": false,
-      "description": "Owner or organization name on which to listen",
-      "_env": "GWF_OWNER"
-    },
-    "gitUsername": {
-      "val": false,
-      "description": "Username for authentication with GitHub",
-      "_env": "GWF_USER"
-    },
-    "gitPassword": {
-      "val": false,
-      "description": "Password for authentication with GitHub",
-      "_env": "GWF_PASS"
-    },
-    "subsFilePath": {
-      "val": false,
-      "description": "Full path and file name of subscription storage file. defaults to `path.join(__dirname, '..', 'runtime', 'subs.json')`",
-      "_env": "GWF_SUBS_FILE"
-    },
-    "subUser": {
-      "val": false,
-      "description": "Username subscribers should use to authenticate subscription requests",
-      "_env": "GWF_SUB_USER"
-    },
-    "subPass": {
-      "val": false,
-      "description": "Password subscribers should use to authenticate subscription requests",
-      "_env": "GWF_SUB_PASS"
-    },
-    "unhook": {
-      "val": false,
-      "description": "Set to `true` to remove the hook that would otherwise be created by starting the service"
-    }
-  },
   "standard": {
     "globals": [
       "describe",
