@@ -31,19 +31,19 @@ module.exports = {
     owner: {
       doc: 'Owner or organization name on which to listen',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_OWNER'
     },
     username: {
       doc: 'Username for authentication with GitHub',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_USER'
     },
     password: {
       doc: 'Password for authentication with GitHub',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_PASS'
     }
   },
@@ -51,19 +51,19 @@ module.exports = {
     filePath: {
       doc: 'Full path and file name of subscription storage file. defaults to `path.join(__dirname, \'..\', \'runtime\', \'subs.json\')`',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_SUBS_FILE'
     },
     username: {
       doc: 'Username subscribers should use to authenticate subscription requests',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_SUB_USER'
     },
     password: {
       doc: 'Password subscribers should use to authenticate subscription requests',
       format: String,
-      default: '',
+      default: null,
       env: 'GWF_SUB_PASS'
     }
   },
