@@ -1,2 +1,6 @@
 'use strict'
-module.exports = {}
+module.exports = {
+  logger: {
+    name: 'vigour-gwf-develop'
+  }
+}

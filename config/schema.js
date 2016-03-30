@@ -14,12 +14,48 @@ module.exports = {
     env: 'NODE_ENV',
     arg: 'node-env'
   },
-  port: {
-    doc: 'Port on which to listen for subscriptions and GitHub webhooks',
-    format: Number,
-    default: 50000,
-    env: 'GWF_PORT',
-    arg: 'port'
+  logger: {
+    name: {
+      doc: 'The name of the application to be used in the logger',
+      format: String,
+      default: 'gwf',
+      env: 'GWF_LOG_APPNAME'
+    },
+    level: {
+      doc: 'The log level to output.',
+      format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
+      default: 'debug',
+      env: 'GWF_LOG_LEVEL'
+    },
+    logentries: {
+      token: {
+        doc: 'The token for logentries',
+        format: String,
+        default: '44a0c3d1-cabd-49d8-8a1f-c1af131c2800',
+        env: 'GWF_LOG_LE_TOKEN'
+      },
+      level: {
+        doc: 'The log level to stream to logentries',
+        format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
+        default: 'info',
+        env: 'GWF_LOG_LE_LEVEL'
+      }
+    }
+  },
+  server: {
+    host: {
+      doc: 'Hostname for the server, defaults to current ip',
+      format: String,
+      default: '',
+      env: 'GWF_HOST'
+    },
+    port: {
+      doc: 'Port on which to listen for subscriptions and GitHub webhooks',
+      format: Number,
+      default: 50000,
+      env: 'GWF_PORT',
+      arg: 'port'
+    }
   },
   callbackURL: {
     doc: 'The URL to tell GitHub to POST Webhooks to',

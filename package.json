@@ -30,6 +30,8 @@
   "dependencies": {
     "basic-auth": "^1.0.3",
     "btoa": "^1.1.2",
+    "bunyan": "1.7.1",
+    "bunyan-logentries": "vigour-io/node-bunyan-logentries",
     "convict": "^1.0.2",
     "express": "^4.13.4",
     "ip": "^1.1.2",
