@@ -14,6 +14,34 @@ module.exports = {
     env: 'NODE_ENV',
     arg: 'node-env'
   },
+  logger: {
+    name: {
+      doc: 'The name of the application to be used in the logger',
+      format: String,
+      default: 'gwf',
+      env: 'GWF_LOG_APPNAME'
+    },
+    level: {
+      doc: 'The log level to output.',
+      format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
+      default: 'debug',
+      env: 'GWF_LOG_LEVEL'
+    },
+    logentries: {
+      token: {
+        doc: 'The token for logentries',
+        format: String,
+        default: 'b884b85d-548b-4338-a891-1d8730ec76f6',
+        env: 'GWF_LOG_LE_TOKEN'
+      },
+      level: {
+        doc: 'The log level to stream to logentries',
+        format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
+        default: 'info',
+        env: 'GWF_LOG_LE_LEVEL'
+      }
+    }
+  },
   port: {
     doc: 'Port on which to listen for subscriptions and GitHub webhooks',
     format: Number,
