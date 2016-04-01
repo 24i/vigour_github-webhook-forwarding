@@ -10,8 +10,11 @@ var handleWebhook = require('../../lib/server/handlewebhook')
 var subsFileDir = path.join(__dirname, 'handleSubscriptionData')
 var subsFilePath = path.join(subsFileDir, 'subscriptions.json')
 
+subscriptions.filePath
 var config = {
-  subsFilePath: subsFilePath
+  subscriptions: {
+    filePath: subsFilePath
+  }
 }
 
 var middleware = handleWebhook(config)

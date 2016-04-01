@@ -26,20 +26,6 @@ module.exports = {
       format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
       default: 'debug',
       env: 'GWF_LOG_LEVEL'
-    },
-    logentries: {
-      token: {
-        doc: 'The token for logentries',
-        format: String,
-        default: '44a0c3d1-cabd-49d8-8a1f-c1af131c2800',
-        env: 'GWF_LOG_LE_TOKEN'
-      },
-      level: {
-        doc: 'The log level to stream to logentries',
-        format: ['trace', 'debug', 'info', 'warn', 'error', 'fatal'],
-        default: 'info',
-        env: 'GWF_LOG_LE_LEVEL'
-      }
     }
   },
   server: {
